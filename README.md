@@ -4,7 +4,7 @@
 <div align="center">
   <br/>
 
-  <h3><b>Stock Listing</b></h3>
+  <h3><b>Blog App</b></h3>
 
 </div>
 
