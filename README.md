@@ -83,7 +83,7 @@ Install this project with:
 ### Usage
 
 - Run npm start for development. 
-- Run npm run build for production
+- Run npm run build for productions
 
 
 ## 👥 Author <a name="authors"></a>
