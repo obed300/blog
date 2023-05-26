@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :Photo
       t.string :Bio
       t.timestamps
-      t.integer :PostCounter
+      t.integer :post_counter
     end
   end
 end
