@@ -8,6 +8,5 @@ class CreatePost < ActiveRecord::Migration[7.0]
       t.integer :CommentsCounter
       t.integer :LikesCounter
     end
-    # add_foreign_key :posts, :users, column: :author_id
   end
 end
