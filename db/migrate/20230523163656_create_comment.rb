@@ -3,7 +3,7 @@ class CreateComment < ActiveRecord::Migration[7.0]
     create_table :comments do |t|
       t.integer :author_id
       t.integer :post_id
-      t.text :Text
+      t.text :text
       t.timestamps
     end
     add_foreign_key :comments, :users, column: :author_id

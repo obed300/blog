@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new(Title: 'Obed Bamfo', Text: 'my picture', comments_counter: 4, likes_counter: 23) }
+  subject { Post.new(title: 'Obed Bamfo', text: 'my picture', comments_counter: 4, likes_counter: 23) }
 
   before { subject.save }
 
   it 'title should not be blank' do
-    subject.Title = nil
+    subject.title = nil
     expect(subject).to_not be_valid
   end
 
   it 'title should not exceed 250 characters' do
-    subject.Title = 'a' * 2
+    subject.title = 'abc' * 250
     expect(subject).to_not be_valid
   end
 
