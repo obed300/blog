@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Holders</h1>
+
+<div id="holders">
+  <% @holders.each do |holder| %>
+    <%= render holder %>
+    <p>
+      <%= link_to "Show this holder", holder %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New holder", new_holder_path %>

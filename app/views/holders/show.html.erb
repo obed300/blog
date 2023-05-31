@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @holder %>
+
+<div>
+  <%= link_to "Edit this holder", edit_holder_path(@holder) %> |
+  <%= link_to "Back to holders", holders_path %>
+
+  <%= button_to "Destroy this holder", @holder, method: :delete %>
+</div>
