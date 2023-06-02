@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_523_163_720) do
   create_table 'comments', force: :cascade do |t|
     t.integer 'author_id'
     t.integer 'post_id'
-    t.text 'Text'
+    t.text 'text'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
@@ -31,26 +31,26 @@ ActiveRecord::Schema[7.0].define(version: 20_230_523_163_720) do
 
   create_table 'posts', force: :cascade do |t|
     t.integer 'author_id'
-    t.string 'Title'
-    t.text 'Text'
+    t.string 'title'
+    t.text 'text'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'comments_counter'
-    t.integer 'like_counter'
+    t.integer 'likes_counter'
   end
 
   create_table 'users', force: :cascade do |t|
-    t.string 'Name'
-    t.string 'Photo'
-    t.string 'Bio'
+    t.string 'name'
+    t.string 'photo'
+    t.string 'bio'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'posts_counter'
   end
 
-  add_foreign_key 'comments', 'posts', column: 'post_id'
+  add_foreign_key 'comments', 'posts'
   add_foreign_key 'comments', 'users', column: 'author_id'
-  add_foreign_key 'likes', 'posts', column: 'post_id'
+  add_foreign_key 'likes', 'posts'
   add_foreign_key 'likes', 'users', column: 'author_id'
   add_foreign_key 'posts', 'users', column: 'author_id'
 end
