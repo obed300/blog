@@ -1,1 +1,26 @@
-<h1> Routes for a specific user with id</h1>
+<%= stylesheet_link_tag 'user_show' %>
+
+<% user = User.find(params[:id])%>
+<%= render "shared/userblock", user: user %>
+
+<div class="bio-box">
+  <span>Bio</span>
+  <p><%= user.bio %></p>
+</div>
+
+<div class="posts-box">
+  <% if user.three_most_recent.empty? %>
+    <%= "#{user.name} has no post yet!" %>
+  <%else%>
+    <% user.three_most_recent.each_with_index do |post, index| %>
+        <div class="post-box">
+            <span>Post #<%= index + 1 %></span>
+            <p><%= post.text %></p>
+        </div>
+    <%end%>
+  <%end%>
+</div>
+
+<%= link_to user_posts_path(params[:id]), class: "posts-btn" do %>
+    <%= "See all posts"%>
+<% end %>

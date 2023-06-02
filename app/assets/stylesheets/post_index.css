@@ -1,0 +1,16 @@
+.post-box {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    padding: 0.2%;
+}
+
+.post-info {
+    align-self: flex-end;
+}
+
+.comment-box {
+    border: solid black;
+    margin-bottom: 4%;
+    padding: 0.2%;
+}

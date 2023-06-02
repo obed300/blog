@@ -1,1 +1,32 @@
-<h1>Route for list of post</h1>
+<%= stylesheet_link_tag 'post_index' %>
+
+<% user =  User.find(params[:user_id])%>
+<%= render "shared/userblock", user: user %>
+
+<div class="all-posts">
+<% Post.where(author: user.id).each_with_index do |post, index|%>
+    <%= link_to user_post_path(user_id: user.id, id: post.id), class:"see-post" do %>
+        <div class="post-box" >
+            <span>Post #<%= index + 1 %></span>
+            <p><%= post.text%></p>
+            <div class="post-info">
+                <span>Comments: <%= post.comments_counter %></span>
+                <span>Likes: <%= post.likes_counter %></span>
+            </div>
+        </div>
+    <%end%>
+
+    <div class="comment-box">
+        <% if Comment.where(post_id: post).empty? %>
+            <%= "No comments yet!"%>
+         <%else%>
+            <% Comment.where(post_id: post).each do |comment| %>
+                <div>
+                <span><%= "#{comment.author.name}: "%></span>
+                <span><%= comment.text %></span>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+<%end%>
+</div>
