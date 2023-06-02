@@ -1,11 +1,9 @@
-class UsersController < ApplicationController
-  class PostsController < ApplicationController
-    def index
-      @posts = Post.all
-    end
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
 
-    def show
-      puts params
-    end
+  def show
+    puts params
   end
 end
