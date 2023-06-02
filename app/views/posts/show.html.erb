@@ -1,1 +1,32 @@
-<h1>Route for specific post id</h1>
+<%= stylesheet_link_tag 'post_show' %>
+
+<% post = Post.find(params[:id]) %>
+<% user = User.find(params[:user_id]) %>
+
+<div class="post-box">
+    <div class="top">
+        <div class="post-details">
+            <span>Post #<%= Post.all.find_index(post) + 1 %> by <%= user.name %></span>
+        </div>
+        <div class="post-stats">
+            <span>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+        </div>
+    </div>
+    
+    <div class="main">
+        <p><%= post.text %></p>
+    </div>
+</div>
+
+<div class="comments-box">
+    <% if Comment.where(post_id: post).empty? %>
+                <%= "No comments yet!"%>
+            <%else%>
+                <% Comment.where(post_id: post).each do |comment| %>
+                    <div>
+                    <span><%= "#{comment.author.name}: "%></span>
+                    <span><%= comment.text %></span>
+                    </div>
+            <% end %>
+    <% end %>
+</div>

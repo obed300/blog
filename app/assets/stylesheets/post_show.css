@@ -1,0 +1,16 @@
+.post-box {
+    border: solid black;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main p {
+    font-weight: bold;
+}
+
+.comments-box {
+    border: solid black;
+}

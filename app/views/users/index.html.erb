@@ -1,1 +1,7 @@
-<h1>Router for all users </h1>
+<%= stylesheet_link_tag 'user_index' %>
+
+<% User.all.each do |user|%>
+  <%= link_to user_path(user), class: "userlink" do %>
+    <%= render "shared/userblock", user: user %>
+  <%end%>
+<%end%>

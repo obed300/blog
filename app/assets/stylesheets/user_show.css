@@ -1,0 +1,25 @@
+.bio-box {
+    border: solid black;
+    margin-bottom: 3%;
+}
+
+.posts-box{
+    margin-bottom: 3%;
+}
+.post-box{
+    margin-bottom: 1%;
+}
+
+.see-post {
+    text-decoration: none;
+    color: black;
+}
+.userlink {
+    text-decoration: none;
+}
+
+.posts-btn {
+    border: black solid 1px;
+    padding: 0.2%;
+    text-decoration: none;
+}

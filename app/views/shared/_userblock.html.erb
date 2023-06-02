@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag 'userblock' %>
+
+<div class="user-block">
+  <div class="photo-box">
+    <img src="<%= user.photo %>" alt="user profile photo" class="photo">
+  </div>
+  
+  <div class="details-box">
+    <h1><%= user.name%></h1>
+    <span>Number of posts <%= user.posts_counter%></span>
+  </div>
+</div>
