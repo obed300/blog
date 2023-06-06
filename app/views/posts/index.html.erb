@@ -1,11 +1,10 @@
 <%= stylesheet_link_tag 'post_index' %>
 
-<% user =  User.find(params[:user_id])%>
-<%= render "shared/userblock", user: user %>
+<%= render "shared/userblock", user: @user %>
 
 <div class="all-posts">
-<% Post.where(author: user.id).each_with_index do |post, index|%>
-    <%= link_to user_post_path(user_id: user.id, id: post.id), class:"see-post" do %>
+<% Post.where(author: @user.id).each_with_index do |post, index|%>
+    <%= link_to user_post_path(user_id: @user.id, id: post.id), class:"see-post" do %>
         <div class="post-box" >
             <span>Post #<%= index + 1 %></span>
             <p><%= post.text%></p>
@@ -30,3 +29,7 @@
     </div>
 <%end%>
 </div>
+
+<%= link_to new_user_post_path(params[:user_id]), class: "posts-btn" do %>
+    <%= "Add new Post"%>
+<% end %>
