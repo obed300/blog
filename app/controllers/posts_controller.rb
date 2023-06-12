@@ -1,17 +1,23 @@
 class PostsController < ApplicationController
+  # The index method is responsible for fetching and displaying a list of posts belonging to a specific user
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
+  # The show method displays only further details on a single post and user
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
   end
 
+  # The new method lets Rails know that you will create a new object
   def new
     @post = @current_user.posts.new
   end
+
+  # It starts by finding the User object based on the user_id parameter
+  # Then, it creates a new Post object associated with that user
 
   def create
     @user = User.find(params[:user_id])
