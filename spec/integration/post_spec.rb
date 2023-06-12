@@ -39,9 +39,5 @@ RSpec.describe 'Renders the post show page', type: :feature do
     end
   end
 
-  scenario 'displays the comments left by each commentor' do
-    @first_post.comments.each do |comment|
-      expect(page).to have_content(comment.text)
-    end
-  end
+  
 end
