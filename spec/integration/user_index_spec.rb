@@ -17,7 +17,6 @@ RSpec.feature 'User Index Page', type: :feature do
     )
   end
 
-
   scenario 'Displaying user information' do
     visit root_path
 
@@ -29,8 +28,6 @@ RSpec.feature 'User Index Page', type: :feature do
     expect(page).to have_css("img[src='#{@user1.photo}']")
     expect(page).to have_css("img[src='#{@user2.photo}']")
 
-    # Test: Display number of posts each user has written
-    # expect(page).to have_content('Number of posts 5')
     expect(page).to have_content("Number of posts #{@user1.posts_counter}")
     expect(page).to have_content(@user1.posts_counter)
     expect(page).to have_content(@user2.posts_counter)
