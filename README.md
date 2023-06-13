@@ -21,6 +21,7 @@
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
+    - [Run tests](#run-tests)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -51,39 +52,62 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
+
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-- In order to run this project you need:
+In order to run this project you need:
 
-- [git](https://git-scm.com/downloads): A tool for managing source code
-- [Visual Studio Code](https://code.visualstudio.com/): A source code editor
-- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): A simple web server utility for Visual Studio Code
+Example command:
+
+```sh
+ gem install rails
+```
 
 ### Setup
 
 Clone this repository to your desired folder:
-https://github.com/obed300/react-redux-capstone.git
- Example commands:
+
+Example commands:
 
 ```sh
   cd my-folder
-  https://github.com/obed300/blog.git
+  git clone https://github.com/obed300/blog.git
 ```
 
 ### Install
 
 Install this project with:
 
-` cd blog
-  - Run npm install after cloning the repo
+Example command:
 
+```sh
+  cd blog-app
+  gem install
+```
 
 ### Usage
 
-- Run npm start for development. 
-- Run npm run build for productions
+To run the project, execute the following command:
+
+Example command:
+
+```sh
+  rails server
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+Example command:
+
+```sh
+  bin/rails test test/models/post_test.rb
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 👥 Author <a name="authors"></a>

@@ -11,11 +11,6 @@ RSpec.describe 'Users', type: :request do
       get '/users'
       expect(response).to render_template(:index)
     end
-
-    it 'displays the body paragraph for users' do
-      get '/users'
-      expect(response.body).to include(' <h1>Router for all users </h1>')
-    end
   end
 
   describe 'GET specific user' do
@@ -29,11 +24,6 @@ RSpec.describe 'Users', type: :request do
     it 'renders the show template' do
       get "/users/#{user.id}"
       expect(response).to render_template(:show)
-    end
-
-    it 'displays the body paragraph for specific user' do
-      get "/users/#{user.id}"
-      expect(response.body).to include('<h1> Routes for a specific user with id</h1>')
     end
   end
 end

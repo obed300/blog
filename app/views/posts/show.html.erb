@@ -1,32 +1,36 @@
 <%= stylesheet_link_tag 'post_show' %>
 
-<% post = Post.find(params[:id]) %>
-<% user = User.find(params[:user_id]) %>
-
 <div class="post-box">
     <div class="top">
         <div class="post-details">
-            <span>Post #<%= Post.all.find_index(post) + 1 %> by <%= user.name %></span>
+            <span>Post #<%= Post.where(author_id: @user.id).find_index(@post).to_i + 1 %> by <%= @user.name %></span>
         </div>
         <div class="post-stats">
-            <span>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+            <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
         </div>
     </div>
     
     <div class="main">
-        <p><%= post.text %></p>
+        <p><%= @post.text %></p>
+    </div>
+    <div class="bottom">
+        <%= render 'shared/like', like: @like %>
     </div>
 </div>
 
 <div class="comments-box">
-    <% if Comment.where(post_id: post).empty? %>
+    <% if Comment.where(post_id: @post).empty? %>
                 <%= "No comments yet!"%>
             <%else%>
-                <% Comment.where(post_id: post).each do |comment| %>
+                <% Comment.where(post_id: @post).each do |comment| %>
                     <div>
                     <span><%= "#{comment.author.name}: "%></span>
                     <span><%= comment.text %></span>
                     </div>
             <% end %>
     <% end %>
+</div>
+<div class="add-comment">
+    <h3>Add a Comment</h3>
+    <%= render 'shared/comment', comment: @comment %>
 </div>

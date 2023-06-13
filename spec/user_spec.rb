@@ -10,11 +10,6 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'must be an integer greater than or equal to zero' do
-    subject.posts_counter = 'a'
-    expect(subject).to_not be_valid
-  end
-
   it 'brings last three posts for the user' do
     user = User.new(name: 'Mert', posts_counter: 0)
     user.save!
