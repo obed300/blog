@@ -1,13 +1,10 @@
-<%= form_with model: [@current_user, @post, Comment.new], url: user_post_comments_path(@current_user, @post) do |form| %>
-    <div class="comment_form">
-      <div>
-        <%= form.label :comment %><br>
-        <%= form.text_area :text, class: 'comment_input' %>
-        <% form.object.errors.full_messages_for(:text).each do |message| %>
-          <div class="error_message"><%= message %></div>
-        <% end %>
-      </div>
-      <br>
-      <%= form.submit 'Submit', class: 'post_button' %>
-    </div>
-  <% end %>
+
+<div class="form">
+<%= form_with model: @comment, url: user_post_comments_path(post.author, post), method: :post, local: true, scope: :comment do |f| %>
+<div class="mb-3">
+ <%= f.label :text, class: 'form-label'%>
+  <%= f.text_area :text,  class: "form-control" , placeholder:'add comment here'%>
+</div>
+  <%= f.submit "comment" ,class: 'btn btn-submit btn-primary'%>
+<% end %>
+</div>
