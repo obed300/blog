@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   # The new method lets Rails know that you will create a new object
   def new
-    @post = @current_user.posts.new
+    @post = Post.new
   end
 
   # It starts by finding the User object based on the user_id parameter
